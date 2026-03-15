@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+::selection {
+  background: #111111;
+  color: #ffffff;
+}
+
+.container-shell {
+  margin-inline: auto;
+  width: 100%;
+  padding-inline: clamp(1rem, 3vw, 3rem);
+}
+
+.section-surface {
+  backdrop-filter: blur(0.5px);
+}
+
+.about-project-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.about-project-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 34%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 36%, rgba(255, 255, 255, 0.015) 60%, rgba(255, 255, 255, 0) 80%);
+}
+
+.about-project-glow > * {
+  position: relative;
+  z-index: 1;
+}
+
+.about-fade-surface {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-fade-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.3) 10%, rgba(0, 0, 0, 0) 18%, rgba(0, 0, 0, 0) 82%, rgba(0, 0, 0, 0.3) 90%, rgba(0, 0, 0, 0.96) 100%),
+    linear-gradient(180deg, rgba(105, 105, 105, 0.98) 0%, rgba(105, 105, 105, 0.96) 52%, rgba(50, 50, 50, 0.9) 76%, rgba(0, 0, 0, 1) 100%),
+    #696969;
+  filter: blur(0.4px);
+}
+
+.gac-stack {
+  position: relative;
+}
+
+.gac-layer {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+}
+
+.gac-about {
+  z-index: 10;
+}
+
+.gac-journey {
+  z-index: 20;
+}
+
+.gac-projects {
+  z-index: 30;
+}
+
+.typewriter-highlight {
+  border-radius: 0.22rem;
+  line-height: 1.2;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88));
+  background-position: left center;
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 760ms ease, color 360ms ease;
+  padding-inline: 0.12em;
+  margin-inline: -0.04em;
+}
+
+.typewriter-highlight.is-active {
+  background-size: 100% 100%;
+  color: #ffffff;
+}
